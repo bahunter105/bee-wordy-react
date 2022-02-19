@@ -1,5 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
+import Hello from './components/Hello'
+import LetterButton from './components/LetterButton'
+import FoundWordCard from './components/FoundWordCard'
 
 function App() {
   return (
@@ -12,40 +15,42 @@ function App() {
                 </input>
               </form>
           </div>
+          <Hello name="Hunter" />
+          Hello(name:"Hunter")
           {/* honeycomb */}
           <div id="honeycomb">
             <div className="row justify-content-center">
               <div className="hex-parent">
                 <p className="hex">&#x2B22;</p>
-                <button className="letter-btn">0</button>
+                     <LetterButton letter="H" />
               </div>
               <div className="hex-parent">
                 <p className="hex">&#x2B22;</p>
-                <button className="letter-btn">0</button>
+                <LetterButton letter="H" />
               </div>
             </div>
             <div className="row justify-content-center">
               <div className="hex-parent">
                 <p className="hex">&#x2B22;</p>
-                <button className="letter-btn">0</button>
+                     <LetterButton letter="H" />
               </div>
               <div className="hex-parent">
                 <p className="hex hex-center">&#x2B22;</p>
-                <button className="letter-btn">0</button>
+                     <LetterButton letter="H" />
               </div>
               <div className="hex-parent">
                 <p className="hex">&#x2B22;</p>
-                <button className="letter-btn">0</button>
+                     <LetterButton letter="H" />
               </div>
             </div>
             <div className="row justify-content-center">
               <div className="hex-parent">
                 <p className="hex">&#x2B22;</p>
-                <button className="letter-btn">0</button>
+                     <LetterButton letter="H" />
               </div>
               <div className="hex-parent">
                 <p className="hex">&#x2B22;</p>
-                <button className="letter-btn">0</button>
+                     <LetterButton letter="H" />
               </div>
             </div>
           </div>
@@ -298,6 +303,7 @@ function App() {
           </div>
           {/* Found Words Box */}
           <div className="container border" id="inner-results-box">
+            <FoundWordCard word="whiff" shortdef="a quick puff or slight gust especially of air, odor, gas, smoke, or spray"/>
           </div>
         </div>
       </div>
