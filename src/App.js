@@ -3,65 +3,65 @@ import './App.css';
 
 function App() {
   return (
-    <div class="container" id="app-box">
-      <div class="row" id="inner-app-box">
-        <div class="container col-6" id="game-box">
+    <div className="container" id="app-box">
+      <div className="row" id="inner-app-box">
+        <div className="container col-6" id="game-box">
           <div id="form-div">
               <form>
-                <input class="form-control-updated" type="text" placeholder="Type or Click" aria-label="Search">
+                <input className="form-control-updated" type="text" placeholder="Type or Click" aria-label="Search">
                 </input>
               </form>
           </div>
           {/* honeycomb */}
           <div id="honeycomb">
-            <div class="row justify-content-center">
-              <div class="hex-parent">
-                <p class="hex">&#x2B22;</p>
-                <button class="letter-btn">0</button>
+            <div className="row justify-content-center">
+              <div className="hex-parent">
+                <p className="hex">&#x2B22;</p>
+                <button className="letter-btn">0</button>
               </div>
-              <div class="hex-parent">
-                <p class="hex">&#x2B22;</p>
-                <button class="letter-btn">0</button>
-              </div>
-            </div>
-            <div class="row justify-content-center">
-              <div class="hex-parent">
-                <p class="hex">&#x2B22;</p>
-                <button class="letter-btn">0</button>
-              </div>
-              <div class="hex-parent">
-                <p class="hex hex-center">&#x2B22;</p>
-                <button class="letter-btn">0</button>
-              </div>
-              <div class="hex-parent">
-                <p class="hex">&#x2B22;</p>
-                <button class="letter-btn">0</button>
+              <div className="hex-parent">
+                <p className="hex">&#x2B22;</p>
+                <button className="letter-btn">0</button>
               </div>
             </div>
-            <div class="row justify-content-center">
-              <div class="hex-parent">
-                <p class="hex">&#x2B22;</p>
-                <button class="letter-btn">0</button>
+            <div className="row justify-content-center">
+              <div className="hex-parent">
+                <p className="hex">&#x2B22;</p>
+                <button className="letter-btn">0</button>
               </div>
-              <div class="hex-parent">
-                <p class="hex">&#x2B22;</p>
-                <button class="letter-btn">0</button>
+              <div className="hex-parent">
+                <p className="hex hex-center">&#x2B22;</p>
+                <button className="letter-btn">0</button>
+              </div>
+              <div className="hex-parent">
+                <p className="hex">&#x2B22;</p>
+                <button className="letter-btn">0</button>
+              </div>
+            </div>
+            <div className="row justify-content-center">
+              <div className="hex-parent">
+                <p className="hex">&#x2B22;</p>
+                <button className="letter-btn">0</button>
+              </div>
+              <div className="hex-parent">
+                <p className="hex">&#x2B22;</p>
+                <button className="letter-btn">0</button>
               </div>
             </div>
           </div>
           {/* results table */}
           <div>
-            <div class="card bg" id="table-div">
-              <div class="card-body" id="inner-table-div">
-                <h5 class="card-title" id="inner-inner-table-div">
+            <div className="card bg" id="table-div">
+              <div className="card-body" id="inner-table-div">
+                <h5 className="card-title" id="inner-inner-table-div">
                   Word Grid
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                    className="bi bi-caret-down-fill" viewBox="0 0 16 16">
                     <path
                       d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
                   </svg>
                 </h5>
-                <table class="table table-borderless">
+                <table className="table table-borderless">
                   <thead>
                     <tr>
                       <th scope="col column">#</th>
@@ -288,16 +288,16 @@ function App() {
             </div>
           </div>
         </div>
-        <div class="h-100" id="result-box">
+        <div className="h-100" id="result-box">
           <div id="rank-div">
             <h5>Rank: </h5>
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped bg-warning" id= "pbar" role="progressbar"
+            <div className="progress">
+              <div className="progress-bar progress-bar-striped bg-warning" id= "pbar" role="progressbar"
                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
           {/* Found Words Box */}
-          <div class="container border" id="inner-results-box">
+          <div className="container border" id="inner-results-box">
           </div>
         </div>
       </div>
