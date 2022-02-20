@@ -3,8 +3,17 @@ import './App.css';
 import Hello from './components/Hello'
 import LetterButton from './components/LetterButton'
 import FoundWordCard from './components/FoundWordCard'
+import { useState } from 'react';
+
+const API_URL = "http://localhost:4567/20220215"
 
 function App() {
+ const [letters, setLetters] = useState([]);
+
+  fetch(API_URL)
+    .then((data) => data.json())
+    .then((json) => setLetters(json));
+  console.log(letters)
   return (
     <div className="container" id="app-box">
       <div className="row" id="inner-app-box">
@@ -15,8 +24,6 @@ function App() {
                 </input>
               </form>
           </div>
-          <Hello name="Hunter" />
-          Hello(name:"Hunter")
           {/* honeycomb */}
           <div id="honeycomb">
             <div className="row justify-content-center">
