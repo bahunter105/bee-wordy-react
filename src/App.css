@@ -139,3 +139,15 @@
   margin-top: 0px;
   margin-bottom: 0px;
 }
+
+.bw-delete-btn{
+  min-width: 90px;
+}
+.bw-shuffle-btn{
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.bw-enter-btn{
+  min-width: 90px;
+  margin-right: 17px;
+}

@@ -2,18 +2,24 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Hello from './components/Hello'
 import LetterButton from './components/LetterButton'
+import HoneyComb from './components/HoneyComb'
 import FoundWordCard from './components/FoundWordCard'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const API_URL = "http://localhost:4567/20220215"
+// const API_URL = "https://bee-sinatra-api.herokuapp.com/"
+// const API_URL = "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/flats.json"
 
 function App() {
  const [letters, setLetters] = useState([]);
 
-  fetch(API_URL)
-    .then((data) => data.json())
-    .then((json) => setLetters(json));
-  console.log(letters)
+ useEffect(()=>{
+   fetch(API_URL)
+     .then((data) => data.json())
+     .then((json) => setLetters(json));
+  },[]);
+    console.log(letters)
+
   return (
     <div className="container" id="app-box">
       <div className="row" id="inner-app-box">
@@ -25,42 +31,11 @@ function App() {
               </form>
           </div>
           {/* honeycomb */}
-          <div id="honeycomb">
-            <div className="row justify-content-center">
-              <div className="hex-parent">
-                <p className="hex">&#x2B22;</p>
-                     <LetterButton letter="H" />
-              </div>
-              <div className="hex-parent">
-                <p className="hex">&#x2B22;</p>
-                <LetterButton letter="H" />
-              </div>
-            </div>
-            <div className="row justify-content-center">
-              <div className="hex-parent">
-                <p className="hex">&#x2B22;</p>
-                     <LetterButton letter="H" />
-              </div>
-              <div className="hex-parent">
-                <p className="hex hex-center">&#x2B22;</p>
-                     <LetterButton letter="H" />
-              </div>
-              <div className="hex-parent">
-                <p className="hex">&#x2B22;</p>
-                     <LetterButton letter="H" />
-              </div>
-            </div>
-            <div className="row justify-content-center">
-              <div className="hex-parent">
-                <p className="hex">&#x2B22;</p>
-                     <LetterButton letter="H" />
-              </div>
-              <div className="hex-parent">
-                <p className="hex">&#x2B22;</p>
-                     <LetterButton letter="H" />
-              </div>
-            </div>
-          </div>
+          <div><p>
+            {/* h */}
+            {letters[0].letters}
+          </p></div>
+          < HoneyComb letters={letters[0].letters}/>
           {/* results table */}
           <div>
             <div className="card bg" id="table-div">
