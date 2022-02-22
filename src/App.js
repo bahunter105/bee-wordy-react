@@ -6,20 +6,22 @@ import HoneyComb from './components/HoneyComb'
 import FoundWordCard from './components/FoundWordCard'
 import { useEffect, useState } from 'react';
 
-const API_URL = "http://localhost:4567/20220215"
+// const API_URL = "http://localhost:4567/20220215"
 // const API_URL = "https://bee-sinatra-api.herokuapp.com/"
 // const API_URL = "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/flats.json"
 
 function App() {
  const [letters, setLetters] = useState([]);
 
- useEffect(()=>{
-   fetch(API_URL)
+ useEffect(() => {
+   fetch("http://localhost:4567/20220215")
      .then((data) => data.json())
      .then((json) => setLetters(json));
   },[]);
-    console.log(letters)
 
+  console.log(letters)
+  const ltrs = letters[0].letters
+  console.log(ltrs)
   return (
     <div className="container" id="app-box">
       <div className="row" id="inner-app-box">
@@ -33,9 +35,10 @@ function App() {
           {/* honeycomb */}
           <div><p>
             {/* h */}
-            {letters[0].letters}
+            {ltrs}
+            {/* {letters[0].letters} */}
           </p></div>
-          < HoneyComb letters={letters[0].letters}/>
+          < HoneyComb letters={ltrs}/>
           {/* results table */}
           <div>
             <div className="card bg" id="table-div">
