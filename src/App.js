@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Hello from './components/Hello'
-import LetterButton from './components/LetterButton'
 import HoneyComb from './components/HoneyComb'
 import ResultsTable from './components/ResultsTable'
 import FoundWordCard from './components/FoundWordCard'
@@ -12,15 +11,15 @@ import { useEffect, useState } from 'react';
 // const API_URL = "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/flats.json"
 
 function App() {
- const [letters, setLetters] = useState([]);
+ const [letters, setLetters] = useState(["hunterb"]);
 
- useEffect(() => {
-   fetch("http://localhost:4567/20220215")
-     .then((data) => data.json())
-     .then((json) => setLetters(json));
-  },[]);
+//  useEffect(() => {
+//    fetch("http://localhost:4567/20220215")
+//      .then((data) => data.json())
+//      .then((json) => setLetters(json));
+//   },[]);
 
-  // console.log(letters)
+  console.log(letters)
   // const ltrs = letters[0].letters
   // console.log(ltrs)
   return (
@@ -39,7 +38,7 @@ function App() {
             {/* {ltrs} */}
             {/* {letters[0].letters} */}
           </p></div>
-          < HoneyComb letters="abcdefd"/>
+          < HoneyComb letters={letters}/>
           {/* results table */}
           <ResultsTable/>
         </div>

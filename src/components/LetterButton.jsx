@@ -1,7 +1,7 @@
 const LetterButton = (props) => {
 
-  const handleClick = () => {
-    console.log("hello");
+  const handleClick = (e) => {
+    console.log(e.target.outerText);
   }
 
   return <button className="letter-btn" onClick={handleClick}>{props.letter}</button>;
