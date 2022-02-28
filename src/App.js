@@ -26,12 +26,6 @@ function App() {
     <div className="container" id="app-box">
       <div className="row" id="inner-app-box">
         <div className="container col-6" id="game-box">
-          <div id="form-div">
-              <form>
-                <input className="form-control-updated" type="text" placeholder="Type or Click" aria-label="Search">
-                </input>
-              </form>
-          </div>
           {/* honeycomb */}
           <div><p>
             {/* h */}

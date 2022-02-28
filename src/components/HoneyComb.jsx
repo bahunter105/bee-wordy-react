@@ -2,42 +2,51 @@ import LetterButton from './LetterButton'
 
 
 const HoneyComb = (props) => {
+  const handleClick = (e) => {
+    document.querySelector(".form-control-updated").value += e.target.outerText;
+  }
+
   return(
     <>
-
+      <div id="form-div">
+          <form>
+            <input className="form-control-updated" type="text" placeholder="Type or Click" aria-label="Search">
+            </input>
+          </form>
+      </div>
       <div id="honeycomb">
         <div className="row justify-content-center">
           <div className="hex-parent">
             <p className="hex">&#x2B22;</p>
-            <LetterButton letter= {props.letters[0][6]}/>
+            <button className="letter-btn" onClick={handleClick}>{props.letters[0][6]}</button>
           </div>
           <div className="hex-parent">
             <p className="hex">&#x2B22;</p>
-            <LetterButton letter= {props.letters[0][5]}/>
+            <button className="letter-btn" onClick={handleClick}>{props.letters[0][5]}</button>
           </div>
         </div>
         <div className="row justify-content-center">
           <div className="hex-parent">
             <p className="hex">&#x2B22;</p>
-            <LetterButton letter= {props.letters[0][0]}/>
+            <button className="letter-btn" onClick={handleClick}>{props.letters[0][0]}</button>
           </div>
           <div className="hex-parent">
             <p className="hex hex-center">&#x2B22;</p>
-            <LetterButton letter= {props.letters[0][1]}/>
+            <button className="letter-btn" onClick={handleClick}>{props.letters[0][1]}</button>
           </div>
           <div className="hex-parent">
             <p className="hex">&#x2B22;</p>
-            <LetterButton letter= {props.letters[0][2]}/>
+            <button className="letter-btn" onClick={handleClick}>{props.letters[0][2]}</button>
           </div>
         </div>
         <div className="row justify-content-center">
           <div className="hex-parent">
             <p className="hex">&#x2B22;</p>
-            <LetterButton letter= {props.letters[0][3]}/>
+            <button className="letter-btn" onClick={handleClick}>{props.letters[0][3]}</button>
           </div>
           <div className="hex-parent">
             <p className="hex">&#x2B22;</p>
-            <LetterButton letter= {props.letters[0][4]}/>
+            <button className="letter-btn" onClick={handleClick}>{props.letters[0][4]}</button>
           </div>
         </div>
       </div>
