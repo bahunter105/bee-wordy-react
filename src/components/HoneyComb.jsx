@@ -5,6 +5,14 @@ const HoneyComb = (props) => {
   const handleClick = (e) => {
     document.querySelector(".form-control-updated").value += e.target.outerText;
   }
+  const shuffle = () => {
+    console.log('shuffling')
+    // const centerLetter = props.letters[0][7]
+    // gon.letters.sort(() => (Math.random() > .5) ? 1 : -1);
+  }
+  const deleting = () => {
+    document.querySelector(".form-control-updated").value = document.querySelector(".form-control-updated").value.slice(0, -1)
+  }
 
   return(
     <>
@@ -51,8 +59,8 @@ const HoneyComb = (props) => {
         </div>
       </div>
       <div className="row justify-content-center">
-        <button type="button" className="btn btn-light bw-delete-btn">Delete</button>
-        <button type="button" className="btn btn-light bw-shuffle-btn">
+        <button type="button" className="btn btn-light bw-delete-btn" onClick={deleting}>Delete</button>
+        <button type="button" className="btn btn-light bw-shuffle-btn" onClick={shuffle}>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-repeat"
             viewBox="0 0 16 16">
             <path
