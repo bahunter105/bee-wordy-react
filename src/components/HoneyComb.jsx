@@ -1,14 +1,21 @@
 import LetterButton from './LetterButton'
+import React, { useState } from 'react';
 
 
 const HoneyComb = (props) => {
+  const [gameLetters, setGameLetters] = useState([...props.letters[0]]);
+
   const handleClick = (e) => {
     document.querySelector(".form-control-updated").value += e.target.outerText;
   }
+
   const shuffle = () => {
-    console.log('shuffling')
-    // const centerLetter = props.letters[0][7]
-    // gon.letters.sort(() => (Math.random() > .5) ? 1 : -1);
+    const joinLetters = gameLetters.join("")
+    const centerLetter = joinLetters[0]
+    const newLetterArray = [...joinLetters.slice(1)]
+    newLetterArray.sort(() => (Math.random() > .5) ? 1 : -1);
+    newLetterArray.unshift(centerLetter)
+    setGameLetters(newLetterArray)
   }
   const deleting = () => {
     document.querySelector(".form-control-updated").value = document.querySelector(".form-control-updated").value.slice(0, -1)
@@ -26,35 +33,35 @@ const HoneyComb = (props) => {
         <div className="row justify-content-center">
           <div className="hex-parent">
             <p className="hex">&#x2B22;</p>
-            <button className="letter-btn" onClick={handleClick}>{props.letters[0][6]}</button>
+            <button className="letter-btn" onClick={handleClick}>{gameLetters[1]}</button>
           </div>
           <div className="hex-parent">
             <p className="hex">&#x2B22;</p>
-            <button className="letter-btn" onClick={handleClick}>{props.letters[0][5]}</button>
+            <button className="letter-btn" onClick={handleClick}>{gameLetters[2]}</button>
           </div>
         </div>
         <div className="row justify-content-center">
           <div className="hex-parent">
             <p className="hex">&#x2B22;</p>
-            <button className="letter-btn" onClick={handleClick}>{props.letters[0][0]}</button>
+            <button className="letter-btn" onClick={handleClick}>{gameLetters[3]}</button>
           </div>
           <div className="hex-parent">
             <p className="hex hex-center">&#x2B22;</p>
-            <button className="letter-btn" onClick={handleClick}>{props.letters[0][1]}</button>
+            <button className="letter-btn" onClick={handleClick}>{gameLetters[0]}</button>
           </div>
           <div className="hex-parent">
             <p className="hex">&#x2B22;</p>
-            <button className="letter-btn" onClick={handleClick}>{props.letters[0][2]}</button>
+            <button className="letter-btn" onClick={handleClick}>{gameLetters[4]}</button>
           </div>
         </div>
         <div className="row justify-content-center">
           <div className="hex-parent">
             <p className="hex">&#x2B22;</p>
-            <button className="letter-btn" onClick={handleClick}>{props.letters[0][3]}</button>
+            <button className="letter-btn" onClick={handleClick}>{gameLetters[5]}</button>
           </div>
           <div className="hex-parent">
             <p className="hex">&#x2B22;</p>
-            <button className="letter-btn" onClick={handleClick}>{props.letters[0][4]}</button>
+            <button className="letter-btn" onClick={handleClick}>{gameLetters[6]}</button>
           </div>
         </div>
       </div>
