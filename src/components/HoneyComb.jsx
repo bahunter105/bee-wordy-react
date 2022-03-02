@@ -10,9 +10,8 @@ const HoneyComb = (props) => {
   }
 
   const shuffle = () => {
-    const joinLetters = gameLetters.join("")
-    const centerLetter = joinLetters[0]
-    const newLetterArray = [...joinLetters.slice(1)]
+    const newLetterArray = [...gameLetters.join("")]
+    const centerLetter = newLetterArray.shift()
     newLetterArray.sort(() => (Math.random() > .5) ? 1 : -1);
     newLetterArray.unshift(centerLetter)
     setGameLetters(newLetterArray)
