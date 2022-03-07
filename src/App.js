@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 // const API_URL = "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/flats.json"
 
 function App() {
- const [letters, setLetters] = useState(["hunterb"]);
+ const [letters, setLetters] = useState("");
 
 //  useEffect(() => {
 //    fetch("http://localhost:4567/20220215")
@@ -19,7 +19,19 @@ function App() {
 //      .then((json) => setLetters(json));
 //   },[]);
 
+useEffect(() => {
+  requestLetters();
+}, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+async function requestLetters() {
+  const res = await fetch(
+    `http://localhost:4567/20220215`
+  );
+  const json = await res.json();
+  setLetters(json[0]["letters"]);
+}
   console.log(letters)
+  // console.log(letters["letters"])
   // const ltrs = letters[0].letters
   // console.log(ltrs)
   return (

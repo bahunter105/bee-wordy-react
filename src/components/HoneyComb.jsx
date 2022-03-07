@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 
 const HoneyComb = (props) => {
-  const [gameLetters, setGameLetters] = useState([...props.letters[0]]);
+  const [gameLetters, setGameLetters] = useState([...props.letters]);
 
   const handleClick = (e) => {
     document.querySelector(".form-control-updated").value += e.target.outerText;
