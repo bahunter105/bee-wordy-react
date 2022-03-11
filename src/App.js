@@ -1,6 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
-import Hello from './components/Hello'
 import HoneyComb from './components/HoneyComb'
 import ResultsTable from './components/ResultsTable'
 import FoundWordCard from './components/FoundWordCard'
