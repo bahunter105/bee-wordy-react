@@ -4,6 +4,8 @@ import HoneyComb from './components/HoneyComb'
 import ResultsTable from './components/ResultsTable'
 import FoundWordCard from './components/FoundWordCard'
 import { useEffect, useState } from 'react';
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+import 'react-day-picker/lib/style.css';
 
 // const API_URL = "http://localhost:4567/20220215"
 // const API_URL = "https://bee-sinatra-api.herokuapp.com/"
@@ -37,6 +39,10 @@ async function requestLetters() {
     <div className="container" id="app-box">
       <div className="row" id="inner-app-box">
         <div className="container col-6" id="game-box">
+          <div>
+            <p>Please type a day:</p>
+            <DayPickerInput onDayChange={day => console.log(day)} />
+          </div>
           {/* honeycomb */}
           <div><p>
             {/* h */}
