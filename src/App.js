@@ -14,12 +14,6 @@ import 'react-day-picker/lib/style.css';
 function App() {
  const [letters, setLetters] = useState("");
 
-//  useEffect(() => {
-//    fetch("http://localhost:4567/20220215")
-//      .then((data) => data.json())
-//      .then((json) => setLetters(json));
-//   },[]);
-
 useEffect(() => {
   requestLetters();
 }, []); // eslint-disable-line react-hooks/exhaustive-deps
