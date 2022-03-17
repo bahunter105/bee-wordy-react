@@ -41,7 +41,7 @@ async function requestLetters() {
           <div><p>
             {/* h */}
             {/* {ltrs} */}
-            {/* {letters[0].letters} */}
+            {letters}
           </p></div>
           < HoneyComb letters={letters}/>
           {/* results table */}

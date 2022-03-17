@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 
 
 const HoneyComb = (props) => {
-  const [gameLetters, setGameLetters] = useState([...props.letters]);
+  const [gameLetters, setGameLetters] = useState(props.letters);
 
   const handleClick = (e) => {
     document.querySelector(".form-control-updated").value += e.target.outerText;
   }
 
   const shuffle = () => {
-    const newLetterArray = [...gameLetters.join("")]
+    const newLetterArray = [...gameLetters]
     const centerLetter = newLetterArray.shift()
     newLetterArray.sort(() => (Math.random() > .5) ? 1 : -1);
     newLetterArray.unshift(centerLetter)
-    setGameLetters(newLetterArray)
+    setGameLetters(newLetterArray.join(""))
   }
   const deleting = () => {
     document.querySelector(".form-control-updated").value = document.querySelector(".form-control-updated").value.slice(0, -1)
@@ -21,6 +21,8 @@ const HoneyComb = (props) => {
 
   return(
     <>
+      {props.letters}
+    {  [...props.letters]}
       <div id="form-div">
           <form>
             <input className="form-control-updated" type="text" placeholder="Type or Click" aria-label="Search">
@@ -70,7 +72,7 @@ const HoneyComb = (props) => {
             viewBox="0 0 16 16">
             <path
               d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z" />
-            <path fill-rule="evenodd"
+            <path fillRule="evenodd"
               d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z" />
           </svg>
         </button>
