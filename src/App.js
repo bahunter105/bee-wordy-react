@@ -13,6 +13,7 @@ const API_URL = "https://bee-sinatra-api.herokuapp.com/"
 
 function App() {
  const [letters, setLetters] = useState("");
+ const [words, setWords] = useState({});
 
 useEffect(() => {
   requestLetters();
@@ -22,8 +23,10 @@ async function requestLetters() {
   const res = await fetch(API_URL);
   const json = await res.json();
   setLetters(json[0]["letters"]);
+  setWords(json[0]["words"])
 }
   console.log(letters)
+  console.log(words)
   return (
     <div className="container" id="app-box">
       <div className="row" id="inner-app-box">

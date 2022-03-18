@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 
 
 const HoneyComb = (props) => {
-  const [gameLetters, setGameLetters] = useState(props.letters);
+  // const [gameLetters, setGameLetters] = useState(props.letters);
+  const [gameLetters, setGameLetters] = useState("cwelome");
   const [count, setCount] = useState(0);
 
 
