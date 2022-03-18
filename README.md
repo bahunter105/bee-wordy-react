@@ -1,70 +1,16 @@
-# Getting Started with Create React App
+**Bee Wordy (React Version) - Copy of NYT's Spelling Bee Game**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**My goal for this project:** *Get a better grip of React to create a fluid front-end experience, while connecting to a backend custom API.*
 
-## Available Scripts
+I’ve created a copy of the New York Time's Spelling Bee game. The original game gives users a set of 7 letters to create words. Words must be >3 letters and must include the letter placed in the center hexagon. Players are ranked based on the number of words found.
 
-In the project directory, you can run:
+***Building the Backend API with Ruby & Sinatra:***
+The functionality for creating the 7 letters is the same as the original Bee-Wordy Rails app. But to keep the program light, I used the Sinatra to generate the JSON output. It is currently hosted on Heroku.
 
-### `npm start`
+***Animating the Frontend with React:***
+<!-- After building the html framework, I added Stimulus JS to bring the UI functionality to life.  The most challenging aspect was implementing a letter shuffler that randomizes letters upon the click of a button. For this, I utilized the GON gem to send the list of letters to a JS controller that randomizes the order and then re-inputs the letters back into the html. With Stimulus JS, I also added a progress bar that updates and word cards that are revealed when their corresponding words are found. -->
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+***Additional improvements for the next iteration:***
+- TBD
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Note: This makes use of the list of english words by dwyl: https://github.com/dwyl/english-words and also the Merriam-Webster Dictionary API to check the list and provide definitions.
