@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 const HoneyComb = (props) => {
   const [gameLetters, setGameLetters] = useState(props.letters);
+  const [count, setCount] = useState(0);
+
 
   const handleClick = (e) => {
     document.querySelector(".form-control-updated").value += e.target.outerText;
@@ -14,21 +16,23 @@ const HoneyComb = (props) => {
     newLetterArray.sort(() => (Math.random() > .5) ? 1 : -1);
     newLetterArray.unshift(centerLetter)
     setGameLetters(newLetterArray.join(""))
+    setCount(count => count += 1);
   }
   const deleting = () => {
     document.querySelector(".form-control-updated").value = document.querySelector(".form-control-updated").value.slice(0, -1)
   }
 
+  useEffect(() => {
+    // Update the document title using the browser API
+  });
+  console.log(count)
+
   return(
     <>
       {props.letters}
     {  [...props.letters]}
-      <div id="form-div">
-          <form>
-            <input className="form-control-updated" type="text" placeholder="Type or Click" aria-label="Search">
-            </input>
-          </form>
-      </div>
+    {gameLetters}
+    {count}
       <div id="honeycomb">
         <div className="row justify-content-center">
           <div className="hex-parent">

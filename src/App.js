@@ -8,7 +8,7 @@ import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 
 // const API_URL = "http://localhost:4567/20220215"
-// const API_URL = "https://bee-sinatra-api.herokuapp.com/"
+const API_URL = "https://bee-sinatra-api.herokuapp.com/"
 // const API_URL = "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/flats.json"
 
 function App() {
@@ -19,16 +19,11 @@ useEffect(() => {
 }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 async function requestLetters() {
-  const res = await fetch(
-    `http://localhost:4567/20220215`
-  );
+  const res = await fetch(API_URL);
   const json = await res.json();
   setLetters(json[0]["letters"]);
 }
   console.log(letters)
-  // console.log(letters["letters"])
-  // const ltrs = letters[0].letters
-  // console.log(ltrs)
   return (
     <div className="container" id="app-box">
       <div className="row" id="inner-app-box">
@@ -38,11 +33,12 @@ async function requestLetters() {
             <DayPickerInput onDayChange={day => console.log(day)} />
           </div>
           {/* honeycomb */}
-          <div><p>
-            {/* h */}
-            {/* {ltrs} */}
-            {letters}
-          </p></div>
+          <div id="form-div">
+            <form>
+              <input className="form-control-updated" type="text" placeholder="Type or Click" aria-label="Search">
+              </input>
+            </form>
+          </div>
           < HoneyComb letters={letters}/>
           {/* results table */}
           <ResultsTable/>
