@@ -9,24 +9,39 @@ import 'react-day-picker/lib/style.css';
 
 // const API_URL = "http://localhost:4567/20220215"
 const API_URL = "https://bee-sinatra-api.herokuapp.com/"
-// const API_URL = "https://raw.githubusercontent.com/lewagon/flats-boilerplate/master/flats.json"
 
 function App() {
  const [letters, setLetters] = useState("");
  const [words, setWords] = useState({});
+ const [foundWords, setFoundWords] = useState([]);
 
-useEffect(() => {
-  requestLetters();
-}, []);
+  useEffect(() => {
+    requestLetters();
+  }, []);
 
-async function requestLetters() {
-  const res = await fetch(API_URL);
-  const json = await res.json();
-  setLetters(json[0]["letters"]);
-  setWords(json[0]["words"])
-}
+  async function requestLetters() {
+    const res = await fetch(API_URL);
+    const json = await res.json();
+    setLetters(json[0]["letters"]);
+    setWords(json[0]["words"])
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let wordArray = foundWords
+    wordArray.push(document.querySelector("input.form-control-updated").value)
+    setFoundWords(wordArray)
+  }
+
+  useEffect(() => {
+    // run a check on the existing words.
+    console.log(foundWords)
+  }, [foundWords]);
+
   console.log(letters)
+  console.log(foundWords)
   console.log(words)
+
   return (
     <div className="container" id="app-box">
       <div className="row" id="inner-app-box">
@@ -37,7 +52,7 @@ async function requestLetters() {
           </div>
           {/* honeycomb */}
           <div id="form-div">
-            <form>
+            <form onSubmit={handleSubmit}>
               <input className="form-control-updated" type="text" placeholder="Type or Click" aria-label="Search">
               </input>
             </form>
