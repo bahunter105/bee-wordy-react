@@ -2,12 +2,15 @@ import { useState, useEffect } from 'react';
 
 
 const HoneyComb = (props) => {
-  // const [gameLetters, setGameLetters] = useState(props.letters);
-  const [gameLetters, setGameLetters] = useState("cwelome");
-  const [count, setCount] = useState(0);
+  const [gameLetters, setGameLetters] = useState(props.letters);
+  // const [gameLetters, setGameLetters] = useState("cwelome");
 
+  useEffect(() => {
+    // Update the gameLetters after the Fetch works in App.js
+    setGameLetters(props.letters)
+  },[props.letters]);
 
-  const handleClick = (e) => {
+  const letterClick = (e) => {
     document.querySelector(".form-control-updated").value += e.target.outerText;
   }
 
@@ -17,56 +20,47 @@ const HoneyComb = (props) => {
     newLetterArray.sort(() => (Math.random() > .5) ? 1 : -1);
     newLetterArray.unshift(centerLetter)
     setGameLetters(newLetterArray.join(""))
-    setCount(count => count += 1);
   }
   const deleting = () => {
     document.querySelector(".form-control-updated").value = document.querySelector(".form-control-updated").value.slice(0, -1)
   }
 
-  useEffect(() => {
-    // Update the document title using the browser API
-  });
-  console.log(count)
 
   return(
     <>
-      {props.letters}
-    {  [...props.letters]}
-    {gameLetters}
-    {count}
       <div id="honeycomb">
         <div className="row justify-content-center">
           <div className="hex-parent">
             <p className="hex">&#x2B22;</p>
-            <button className="letter-btn" onClick={handleClick}>{gameLetters[1]}</button>
+            <button className="letter-btn" onClick={letterClick}>{gameLetters[1]}</button>
           </div>
           <div className="hex-parent">
             <p className="hex">&#x2B22;</p>
-            <button className="letter-btn" onClick={handleClick}>{gameLetters[2]}</button>
+            <button className="letter-btn" onClick={letterClick}>{gameLetters[2]}</button>
           </div>
         </div>
         <div className="row justify-content-center">
           <div className="hex-parent">
             <p className="hex">&#x2B22;</p>
-            <button className="letter-btn" onClick={handleClick}>{gameLetters[3]}</button>
+            <button className="letter-btn" onClick={letterClick}>{gameLetters[3]}</button>
           </div>
           <div className="hex-parent">
             <p className="hex hex-center">&#x2B22;</p>
-            <button className="letter-btn" onClick={handleClick}>{gameLetters[0]}</button>
+            <button className="letter-btn" onClick={letterClick}>{gameLetters[0]}</button>
           </div>
           <div className="hex-parent">
             <p className="hex">&#x2B22;</p>
-            <button className="letter-btn" onClick={handleClick}>{gameLetters[4]}</button>
+            <button className="letter-btn" onClick={letterClick}>{gameLetters[4]}</button>
           </div>
         </div>
         <div className="row justify-content-center">
           <div className="hex-parent">
             <p className="hex">&#x2B22;</p>
-            <button className="letter-btn" onClick={handleClick}>{gameLetters[5]}</button>
+            <button className="letter-btn" onClick={letterClick}>{gameLetters[5]}</button>
           </div>
           <div className="hex-parent">
             <p className="hex">&#x2B22;</p>
-            <button className="letter-btn" onClick={handleClick}>{gameLetters[6]}</button>
+            <button className="letter-btn" onClick={letterClick}>{gameLetters[6]}</button>
           </div>
         </div>
       </div>

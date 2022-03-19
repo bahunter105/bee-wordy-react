@@ -17,7 +17,7 @@ function App() {
 
 useEffect(() => {
   requestLetters();
-}, []); // eslint-disable-line react-hooks/exhaustive-deps
+}, []);
 
 async function requestLetters() {
   const res = await fetch(API_URL);
