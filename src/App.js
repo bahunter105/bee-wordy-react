@@ -59,7 +59,7 @@ function App() {
           </div>
           < HoneyComb letters={letters}/>
           {/* results table */}
-          <ResultsTable/>
+          <ResultsTable letters={letters} words={words}/>
         </div>
         <div className="h-100" id="result-box">
           <div id="rank-div">

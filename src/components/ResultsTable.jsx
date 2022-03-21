@@ -1,4 +1,16 @@
 const ResultsTable = (props) => {
+  const filtered_words = Object.keys(props.words)
+
+  const countWords = (filtered_words, letter, num_reg) => {
+  let count=0
+  filtered_words.forEach(word => word.match(`^[${letter}].{${num_reg}}$`)? ++count : 0);
+  return count
+  }
+  const countWordsSum = (filtered_words, num_reg) => {
+  let count=0
+  filtered_words.forEach(word => word.match(`^.{${num_reg}}$`)? ++count : 0);
+  return count
+  }
 
   return(
     <div>
@@ -26,212 +38,172 @@ const ResultsTable = (props) => {
             </thead>
             <tbody>
               <tr>
-                <th scope="row">0</th>
+                <th scope="row">{props.letters[0]}</th>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[0]}].{3}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[0],3)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[0]}].{4}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[0],4)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[0]}].{5}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[0],5)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[0]}].{6}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[0],6)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[0]}].{7,}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[0],"7,")}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[0]}].{3,}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[0],"3,")}
                 </td>
               </tr>
               <tr>
-                <th scope="row">0</th>
+                <th scope="row">{props.letters[1]}</th>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[1]}].{3}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[1],3)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[1]}].{4}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[1],4)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[1]}].{5}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[1],5)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[1]}].{6}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[1],6)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[1]}].{7,}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[1],"7,")}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[1]}].{3,}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[1],"3,")}
                 </td>
               </tr>
               <tr>
-                <th scope="row">0</th>
+                <th scope="row">{props.letters[2]}</th>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[2]}].{3}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[2],3)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[2]}].{4}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[2],4)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[2]}].{5}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[2],5)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[2]}].{6}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[2],6)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[2]}].{7,}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[2],"7,")}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[2]}].{3,}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[2],"3,")}
                 </td>
               </tr>
               <tr>
-                <th scope="row">0</th>
+                <th scope="row">{props.letters[3]}</th>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[3]}].{3}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[3],3)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[3]}].{4}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[3],4)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[3]}].{5}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[3],5)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[3]}].{6}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[3],6)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[3]}].{7,}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[3],"7,")}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[3]}].{3,}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[3],"3,")}
                 </td>
               </tr>
               <tr>
-                <th scope="row">0</th>
+                <th scope="row">{props.letters[4]}</th>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[4]}].{3}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[4],3)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[4]}].{4}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[4],4)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[4]}].{5}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[4],5)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[4]}].{6}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[4],6)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[4]}].{7,}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[4],"7,")}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[4]}].{3,}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[4],"3,")}
                 </td>
               </tr>
               <tr>
-                <th scope="row">0</th>
+                <th scope="row">{props.letters[5]}</th>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[5]}].{3}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[5],3)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[5]}].{4}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[5],4)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[5]}].{5}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[5],5)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[5]}].{6}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[5],6)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[5]}].{7,}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[5],"7,")}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[5]}].{3,}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[3],"3,")}
                 </td>
               </tr>
               <tr>
-                <th scope="row">0</th>
+                <th scope="row">{props.letters[6]}</th>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[6]}].{3}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[6],3)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[6]}].{4}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[6],4)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[6]}].{5}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[6],5)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[6]}].{6}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[6],6)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[6]}].{7,}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[6],"7,")}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^[#{@letters[6]}].{3,}$/===word sum +=1 end end sum
-                    %> */}
+                  {countWords(filtered_words, props.letters[6],"3,")}
                 </td>
               </tr>
               <tr>
                 <th scope="row">Σ</th>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^.{4}$/===word sum +=1 end end sum %> */}
+                  {countWordsSum(filtered_words,4)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^.{5}$/===word sum +=1 end end sum %> */}
+                  {countWordsSum(filtered_words,5)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^.{6}$/===word sum +=1 end end sum %> */}
+                  {countWordsSum(filtered_words,6)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^.{7}$/===word sum +=1 end end sum %> */}
+                  {countWordsSum(filtered_words,7)}
                 </td>
                 <td>
-                  {/* <%= sum=0 @filtered_words.each do |word| if /^.{8,}$/===word sum +=1 end end sum %> */}
+                  {countWordsSum(filtered_words,"8,")}
                 </td>
-                <td>0</td>
+                <td>
+                  {countWordsSum(filtered_words,"3,")}
+                </td>
               </tr>
             </tbody>
           </table>
