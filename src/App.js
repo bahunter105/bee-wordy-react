@@ -14,6 +14,7 @@ function App() {
  const [letters, setLetters] = useState("");
  const [words, setWords] = useState({});
  const [foundWords, setFoundWords] = useState([]);
+ const [lastWord, setLastWord] = useState();
 
   useEffect(() => {
     requestLetters();
@@ -29,17 +30,23 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     let wordArray = foundWords
-    wordArray.push(document.querySelector("input.form-control-updated").value)
-    setFoundWords(wordArray)
+    let foundWord = document.querySelector("input.form-control-updated").value
+    if (Object.keys(words).includes(foundWord)) {
+      wordArray.push(foundWord)
+      setFoundWords(wordArray)
+      setLastWord(foundWord)
+    }else{
+      alert("Word does not exist")
+    }
     document.querySelector("input.form-control-updated").value=""
   }
 
   useEffect(() => {
     // run a check on the existing words.
     console.log(foundWords)
-  }, [foundWords]);
+  },[lastWord]);
 
-  console.log(letters)
+  // console.log(letters)
   console.log(words)
 
   return (
@@ -71,14 +78,11 @@ function App() {
           </div>
           {/* Found Words Box */}
           <div className="container border" id="inner-results-box">
-            {foundWords.map(word => <FoundWordCard word={word} key={word}/>)}
+            {foundWords.map(word => <FoundWordCard word={word} shortdef={words[word]} key={word}/>)}
           </div>
         </div>
       </div>
     </div>
-
-
-
   );
 }
 
