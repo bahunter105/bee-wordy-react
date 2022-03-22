@@ -31,6 +31,7 @@ function App() {
     let wordArray = foundWords
     wordArray.push(document.querySelector("input.form-control-updated").value)
     setFoundWords(wordArray)
+    document.querySelector("input.form-control-updated").value=""
   }
 
   useEffect(() => {
@@ -39,7 +40,6 @@ function App() {
   }, [foundWords]);
 
   console.log(letters)
-  console.log(foundWords)
   console.log(words)
 
   return (
@@ -71,7 +71,7 @@ function App() {
           </div>
           {/* Found Words Box */}
           <div className="container border" id="inner-results-box">
-            <FoundWordCard word="whiff" shortdef="a quick puff or slight gust especially of air, odor, gas, smoke, or spray"/>
+            {foundWords.map(word => <FoundWordCard word={word} key={word}/>)}
           </div>
         </div>
       </div>
