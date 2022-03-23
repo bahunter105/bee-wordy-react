@@ -17,7 +17,7 @@ const FoundWordCard = (props) => {
           </svg>
         </h5>
         <div className={`${props.word}-shortdef`}>
-          {props.shortdef.map((shortdef,index) => <p className="card-text" display="none" key={index}> {index+1}. {props.shortdef[index]} </p>)}
+          {props.shortdef.map((shortdef,index) => <p className="card-text" key={index}> {index+1}. {props.shortdef[index]} </p>)}
         </div>
       </div>
     </div>
