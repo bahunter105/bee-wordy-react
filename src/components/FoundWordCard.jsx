@@ -9,7 +9,7 @@ const FoundWordCard = (props) => {
     <div className="card bg-light bw-word-card-div">
       <div className="card-body bw-word-card">
         <h5 className="card-title bw-card-title">
-          {props.word}
+          {props.word + " "}
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-down-fill"
             viewBox="0 0 16 16" onClick={displayDef}>
               <path
@@ -17,7 +17,7 @@ const FoundWordCard = (props) => {
           </svg>
         </h5>
         <div className={`${props.word}-shortdef`}>
-          {props.shortdef.map((shortdef,index) => <p className="card-text"> {index+1}. {props.shortdef[index]} </p>)}
+          {props.shortdef.map((shortdef,index) => <p className="card-text" display="none" key={index}> {index+1}. {props.shortdef[index]} </p>)}
         </div>
       </div>
     </div>

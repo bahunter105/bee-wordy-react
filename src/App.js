@@ -31,16 +31,38 @@ function App() {
     e.preventDefault();
     let wordArray = foundWords
     let foundWord = document.querySelector("input.form-control-updated").value
-    if (Object.keys(words).includes(foundWord)) {
+    if(foundWords.includes(foundWord)){
+      alert("Word already found!")
+    }else if (Object.keys(words).includes(foundWord)) {
       wordArray.push(foundWord)
       setFoundWords(wordArray)
       setLastWord(foundWord)
+      progressUpdate()
     }else{
-      alert("Word does not exist")
+      alert("Word does not exist!")
     }
     document.querySelector("input.form-control-updated").value=""
   }
 
+  const progressUpdate = () => {
+    let perdone = (foundWords.length / Object.keys(words).length) * 100
+    let rank = ""
+    if (perdone < 16) {
+      rank = "Beginner";
+    } else if (perdone >= 16 && perdone < 32) {
+      rank = "Good"
+    } else if (perdone >= 32 && perdone < 48) {
+      rank = "Solid";
+    } else if (perdone >= 48 && perdone < 64) {
+      rank = "Great";
+    } else if (perdone >= 64 && perdone < 80) {
+      rank = "Amazing";
+    } else if (perdone >= 80) {
+      rank = "Genius";
+    }
+    document.querySelector('#pbar').style.width = `${perdone}%`
+    document.querySelector("#rank-div h5").innerHTML = `Rank: ${rank}`
+  }
   useEffect(() => {
     // run a check on the existing words.
     console.log(foundWords)
