@@ -143,12 +143,22 @@
 
 .bw-delete-btn{
   min-width: 90px;
+  width: 0%;
 }
 .bw-shuffle-btn{
+  min-width: 40px;
   margin-left: 8px;
   margin-right: 8px;
+  width: 0%;
 }
 .bw-enter-btn{
   min-width: 90px;
   margin-right: 17px;
+  width: 0%;
+}
+.shuf-sign{
+  margin-left: -1px;
+}
+.short-def{
+  display: none;
 }

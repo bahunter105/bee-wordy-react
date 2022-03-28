@@ -14,7 +14,7 @@ const ResultsTable = (props) => {
 
   const displayTable = () =>{
     let styleName = document.querySelector(".table").style
-    styleName.display === 'block' ? styleName.display = 'none': styleName.display='block';
+    styleName.display === 'none' ? styleName.display = '': styleName.display='none';
   }
 
   return(

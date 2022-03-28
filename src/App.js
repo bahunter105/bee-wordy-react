@@ -6,8 +6,9 @@ import FoundWordCard from './components/FoundWordCard'
 import { useEffect, useState } from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-// const API_URL = "http://localhost:4567/20220215"
 const API_URL = "https://bee-sinatra-api.herokuapp.com/"
 
 function App() {
@@ -32,14 +33,30 @@ function App() {
     let wordArray = foundWords
     let foundWord = document.querySelector("input.form-control-updated").value
     if(foundWords.includes(foundWord)){
-      alert("Word already found!")
+      toast("Sorry 🥲 You found that word already!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
     }else if (Object.keys(words).includes(foundWord)) {
       wordArray.push(foundWord)
       setFoundWords(wordArray)
       setLastWord(foundWord)
       progressUpdate()
     }else{
-      alert("Word does not exist!")
+      toast("Sorry 🧐 Don't think that word exist!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
     }
     document.querySelector("input.form-control-updated").value=""
   }
@@ -73,12 +90,27 @@ function App() {
 
   return (
     <div className="container" id="app-box">
+      <div>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+        {/* Same as */}
+        <ToastContainer />
+      </div>
       <div className="row" id="inner-app-box">
         <div className="container col-6" id="game-box">
-          <div>
+          {/* <div>
             <p>Please type a day:</p>
             <DayPickerInput onDayChange={day => console.log(day)} />
-          </div>
+          </div> */}
           {/* honeycomb */}
           <div id="form-div">
             <form onSubmit={handleSubmit}>

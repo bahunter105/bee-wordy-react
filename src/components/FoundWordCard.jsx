@@ -2,8 +2,8 @@ const FoundWordCard = (props) => {
 
   const displayDef = () =>{
     let styleName = document.querySelector(`.${props.word}-shortdef`).style
-    styleName.display === 'block' ? styleName.display = 'none': styleName.display='block';
-  }
+    styleName.display === 'none' ? styleName.display = '': styleName.display='none';
+    }
 
   return(
     <div className="card bg-light bw-word-card-div">
