@@ -47,6 +47,27 @@ function App() {
       setFoundWords(wordArray)
       setLastWord(foundWord)
       progressUpdate()
+      if(letters.split("").map( letter => foundWord.includes(letter)).includes(false)){
+        toast("Boom! 🔥 You found a word!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+        }else{
+        toast("You're super 🦸‍♂️ you just found a PANGRAM!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+      }
     }else{
       toast("Sorry 🧐 Don't think that word exist!", {
         position: "top-center",
@@ -80,13 +101,13 @@ function App() {
     document.querySelector('#pbar').style.width = `${perdone}%`
     document.querySelector("#rank-div h5").innerHTML = `Rank: ${rank}`
   }
-  useEffect(() => {
-    // run a check on the existing words.
-    console.log(foundWords)
-  },[lastWord]);
+  // useEffect(() => {
+  //   // run a check on the existing words.
+  //   console.log(foundWords)
+  // },[lastWord]);
 
   // console.log(letters)
-  console.log(words)
+  // console.log(words)
 
   return (
     <div className="container" id="app-box">
