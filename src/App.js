@@ -9,20 +9,33 @@ import 'react-day-picker/lib/style.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const API_URL = "https://bee-sinatra-api.herokuapp.com/"
 
 function App() {
+ const [apiUrl, setApiURL] = useState("https://bee-sinatra-api.herokuapp.com/");
  const [letters, setLetters] = useState("");
  const [words, setWords] = useState({});
  const [foundWords, setFoundWords] = useState([]);
  const [lastWord, setLastWord] = useState();
+//  const [typedLetter,setTypedLetter] = useState("");
 
   useEffect(() => {
     requestLetters();
-  }, []);
+  }, [setApiURL]);
+
+  useEffect(() => {
+    document.addEventListener("keyup", e => {
+      let typedLetter = e.key
+      console.log(typedLetter)
+    });
+  },[]);
+
+  useEffect(() => {
+    if(letters.includes(typedLetter)){
+      document.querySelector(".form-control-updated").value += typedLetter
+    }  }, [typedLetter]);
 
   async function requestLetters() {
-    const res = await fetch(API_URL);
+    const res = await fetch(apiUrl);
     const json = await res.json();
     setLetters(json[0]["letters"]);
     setWords(json[0]["words"])
@@ -108,6 +121,8 @@ function App() {
 
   // console.log(letters)
   // console.log(words)
+  // document.querySelector(".form-control-updated").value += e.target.outerText;
+
 
   return (
     <div className="container" id="app-box">
@@ -128,10 +143,10 @@ function App() {
       </div>
       <div className="row" id="inner-app-box">
         <div className="container col-6" id="game-box">
-          {/* <div>
+          <div>
             <p>Please type a day:</p>
-            <DayPickerInput onDayChange={day => console.log(day)} />
-          </div> */}
+            <DayPickerInput onDayChange={day =>   setApiURL(`https://bee-sinatra-api.herokuapp.com/${new Date(day).toISOString().replace('-', '').split('T')[0].replace('-', '')}`)} />
+          </div>
           {/* honeycomb */}
           <div id="form-div">
             <form onSubmit={handleSubmit}>
