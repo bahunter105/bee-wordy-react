@@ -29,10 +29,10 @@ function App() {
     });
   },[]);
 
-  useEffect(() => {
-    if(letters.includes(typedLetter)){
-      document.querySelector(".form-control-updated").value += typedLetter
-    }  }, [typedLetter]);
+  // useEffect(() => {
+  //   if(letters.includes(typedLetter)){
+  //     document.querySelector(".form-control-updated").value += typedLetter
+  //   }  }, [typedLetter]);
 
   async function requestLetters() {
     const res = await fetch(apiUrl);
